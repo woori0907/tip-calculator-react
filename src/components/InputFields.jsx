@@ -1,24 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const InputFields = () => {
+const InputFields = ({ setTips }) => {
   const [bill, setBill] = useState(0);
   const [peoples, setPeoples] = useState(0);
   const [tipPercent, setTipPercent] = useState(0);
+
+  let tipAmount;
+  let totalTip;
+
   const calcTip = () => {
-    const percent = parseFloat(tipPercent) / 100;
-    const tipAmount = (bill / peoples) * percent;
-    console.log(`bill: ${bill}`);
-    console.log(`peoples: ${peoples}`);
-    console.log(`percent:${percent}`);
-    console.log(`tip Amount : ${tipAmount.toFixed(2)}`);
-    console.log(`total : ${(tipAmount * peoples).toFixed(2)}`);
+    const percent = tipPercent / 100;
+    tipAmount = ((bill / peoples) * percent).toFixed(2);
+    totalTip = (tipAmount * peoples).toFixed(2);
   };
   const handlePercentInput = (e) => {
     e.preventDefault();
-    setTipPercent(e.target.value);
+    setTipPercent(parseFloat(e.target.value));
   };
   const handleInput = (e) => {
-    console.log(e.target.id);
     if (e.target.id === "bill") {
       setBill(parseFloat(e.target.value));
     } else if (e.target.id === "peoples") {
@@ -28,6 +27,11 @@ const InputFields = () => {
   if (bill !== 0 && peoples !== 0 && tipPercent !== 0) {
     calcTip();
   }
+  useEffect(() => {
+    if (tipAmount !== 0 && totalTip !== 0) {
+      setTips(tipAmount, totalTip);
+    }
+  }, [totalTip]);
   return (
     <div>
       <form action="">
