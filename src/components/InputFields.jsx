@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-const InputFields = ({ setTips }) => {
+const InputFields = ({ setTips, isReset, setIsReset }) => {
   const [bill, setBill] = useState(0);
   const [peoples, setPeoples] = useState(0);
   const [tipPercent, setTipPercent] = useState(0);
+  const [text, setText] = useState({
+    bill: "",
+    peoples: "",
+  });
 
   let tipAmount;
   let totalTip;
@@ -18,6 +22,8 @@ const InputFields = ({ setTips }) => {
     setTipPercent(parseFloat(e.target.value));
   };
   const handleInput = (e) => {
+    const { value, name } = e.target;
+    setText({ ...text, [name]: value });
     if (e.target.id === "bill") {
       setBill(parseFloat(e.target.value));
     } else if (e.target.id === "peoples") {
@@ -27,16 +33,34 @@ const InputFields = ({ setTips }) => {
   if (bill !== 0 && peoples !== 0 && tipPercent !== 0) {
     calcTip();
   }
+
   useEffect(() => {
     if (tipAmount !== 0 && totalTip !== 0) {
       setTips(tipAmount, totalTip);
     }
   }, [totalTip]);
+
+  useEffect(() => {
+    if (isReset) {
+      setText({
+        bill: "",
+        peoples: "",
+      });
+      setIsReset((prev) => !prev);
+    }
+  }, [isReset]);
+
   return (
     <div>
       <form action="">
         <label htmlFor="bill">Bill</label>
-        <input id="bill" type="number" onChange={handleInput} />
+        <input
+          name="bill"
+          id="bill"
+          type="number"
+          onChange={handleInput}
+          value={text.bill}
+        />
         <section>
           <button onClick={handlePercentInput} value="5">
             5%
@@ -61,7 +85,13 @@ const InputFields = ({ setTips }) => {
           />
         </section>
         <label htmlFor="peoples">Number of People</label>
-        <input type="number" name="" id="peoples" onChange={handleInput} />
+        <input
+          type="number"
+          name="peoples"
+          id="peoples"
+          value={text.peoples}
+          onChange={handleInput}
+        />
       </form>
     </div>
   );

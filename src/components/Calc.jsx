@@ -5,18 +5,27 @@ import Results from "./Results";
 const Calc = () => {
   const [tipAmount, setTipAmount] = useState(0);
   const [totalTip, setTotalTip] = useState(0);
+  const [isReset, setIsReset] = useState(false);
 
   const setTips = (tip, total) => {
-    console.log(`tip Amount : ${tip}`);
-    console.log(`total : ${total}`);
     setTipAmount(tip);
     setTotalTip(total);
   };
 
   return (
     <>
-      <InputFields setTips={setTips} />
-      <Results tipAmount={tipAmount} totalTip={totalTip} />
+      <InputFields
+        setTips={setTips}
+        isReset={isReset}
+        setIsReset={setIsReset}
+      />
+      <Results
+        tipAmount={tipAmount}
+        totalTip={totalTip}
+        isReset={isReset}
+        setIsReset={setIsReset}
+        setTips={setTips}
+      />
     </>
   );
 };
