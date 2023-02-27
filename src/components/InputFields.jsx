@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Button from "./ui/Button";
+import styles from "./InputFields.module.css";
 
 const InputFields = ({ setTips, isReset, setIsReset }) => {
   const [bill, setBill] = useState(0);
@@ -19,6 +21,7 @@ const InputFields = ({ setTips, isReset, setIsReset }) => {
   };
   const handlePercentInput = (e) => {
     e.preventDefault();
+
     setTipPercent(parseFloat(e.target.value));
   };
   const handleInput = (e) => {
@@ -51,7 +54,7 @@ const InputFields = ({ setTips, isReset, setIsReset }) => {
   }, [isReset]);
 
   return (
-    <div>
+    <div className={styles.input_wrap}>
       <form action="">
         <label htmlFor="bill">Bill</label>
         <input
@@ -62,21 +65,36 @@ const InputFields = ({ setTips, isReset, setIsReset }) => {
           value={text.bill}
         />
         <section>
-          <button onClick={handlePercentInput} value="5">
-            5%
-          </button>
-          <button onClick={handlePercentInput} value="10">
-            10%
-          </button>
-          <button onClick={handlePercentInput} value="15">
-            15%
-          </button>
-          <button onClick={handlePercentInput} value="25">
-            25%
-          </button>
-          <button onClick={handlePercentInput} value="50">
-            50%
-          </button>
+          <Button
+            buttonText={"5%"}
+            value={5}
+            onClick={handlePercentInput}
+            isDark={true}
+          ></Button>
+          <Button
+            buttonText={"10%"}
+            value={10}
+            onClick={handlePercentInput}
+            isDark={true}
+          ></Button>
+          <Button
+            buttonText={"15%"}
+            value={15}
+            onClick={handlePercentInput}
+            isDark={true}
+          ></Button>
+          <Button
+            buttonText={"25%"}
+            value={25}
+            onClick={handlePercentInput}
+            isDark={true}
+          ></Button>
+          <Button
+            buttonText={"50%"}
+            value={50}
+            onClick={handlePercentInput}
+            isDark={true}
+          ></Button>
           <input
             type="number"
             placeholder="custom"

@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "./ui/Button";
+import styles from "./Results.module.css";
 
 const Results = ({ tipAmount, totalTip, isReset, setIsReset, setTips }) => {
   const handleResetClick = (e) => {
@@ -8,11 +10,15 @@ const Results = ({ tipAmount, totalTip, isReset, setIsReset, setTips }) => {
   };
 
   return (
-    <>
+    <div className={styles.result_wrap}>
       <h3>Tip Amount : {tipAmount}</h3>
       <h3>Total Tip : {totalTip}</h3>
-      <button onClick={handleResetClick}>RESET</button>
-    </>
+      <Button
+        buttonText={"RESET"}
+        onClick={handleResetClick}
+        isDark={false}
+      ></Button>
+    </div>
   );
 };
 
