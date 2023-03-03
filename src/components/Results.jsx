@@ -10,15 +10,28 @@ const Results = ({ tipAmount, totalTip, isReset, setIsReset, setTips }) => {
   };
 
   return (
-    <div className={styles.result_wrap}>
-      <h3>Tip Amount : {tipAmount}</h3>
-      <h3>Total Tip : {totalTip}</h3>
+    <section className={styles.result_wrap}>
+      <div className={styles.result}>
+        <div className={styles.label}>
+          <p className={styles.label_title}>Tip Amount</p>
+          <p className={styles.label_desc}>/ person</p>
+        </div>
+        <h3>{tipAmount ? tipAmount : 0.0}</h3>
+      </div>
+
+      <div className={styles.result}>
+        <div className={styles.label}>
+          <p className={styles.label_title}>Total</p>
+          <p className={styles.label_desc}>/ person</p>
+        </div>
+        <h3>{totalTip ? totalTip : 0.0}</h3>
+      </div>
       <Button
         buttonText={"RESET"}
         onClick={handleResetClick}
         isDark={false}
       ></Button>
-    </div>
+    </section>
   );
 };
 

@@ -56,60 +56,73 @@ const InputFields = ({ setTips, isReset, setIsReset }) => {
   return (
     <div className={styles.input_wrap}>
       <form action="">
-        <label htmlFor="bill">Bill</label>
-        <input
-          name="bill"
-          id="bill"
-          type="number"
-          onChange={handleInput}
-          value={text.bill}
-        />
-        <section>
-          <Button
-            buttonText={"5%"}
-            value={5}
-            onClick={handlePercentInput}
-            isDark={true}
-          ></Button>
-          <Button
-            buttonText={"10%"}
-            value={10}
-            onClick={handlePercentInput}
-            isDark={true}
-          ></Button>
-          <Button
-            buttonText={"15%"}
-            value={15}
-            onClick={handlePercentInput}
-            isDark={true}
-          ></Button>
-          <Button
-            buttonText={"25%"}
-            value={25}
-            onClick={handlePercentInput}
-            isDark={true}
-          ></Button>
-          <Button
-            buttonText={"50%"}
-            value={50}
-            onClick={handlePercentInput}
-            isDark={true}
-          ></Button>
+        <section className={styles.input_section}>
+          <label htmlFor="bill" className={styles.label}>
+            Bill
+          </label>
           <input
+            name="bill"
+            id="bill"
             type="number"
-            placeholder="custom"
-            onChange={handlePercentInput}
-            max="100"
+            placeholder="0"
+            onChange={handleInput}
+            value={text.bill}
           />
         </section>
-        <label htmlFor="peoples">Number of People</label>
-        <input
-          type="number"
-          name="peoples"
-          id="peoples"
-          value={text.peoples}
-          onChange={handleInput}
-        />
+        <section className={styles.input_section}>
+          <p className={styles.label}>Select Tip %</p>
+          <div className={styles.percent_field}>
+            <Button
+              buttonText={"5%"}
+              value={5}
+              onClick={handlePercentInput}
+              isDark={true}
+            ></Button>
+            <Button
+              buttonText={"10%"}
+              value={10}
+              onClick={handlePercentInput}
+              isDark={true}
+            ></Button>
+            <Button
+              buttonText={"15%"}
+              value={15}
+              onClick={handlePercentInput}
+              isDark={true}
+            ></Button>
+            <Button
+              buttonText={"25%"}
+              value={25}
+              onClick={handlePercentInput}
+              isDark={true}
+            ></Button>
+            <Button
+              buttonText={"50%"}
+              value={50}
+              onClick={handlePercentInput}
+              isDark={true}
+            ></Button>
+            <input
+              type="number"
+              placeholder="custom"
+              onChange={handlePercentInput}
+              max="100"
+            />
+          </div>
+        </section>
+        <section className={styles.input_section}>
+          <label htmlFor="peoples" className={styles.label}>
+            Number of People
+          </label>
+          <input
+            type="number"
+            name="peoples"
+            id="peoples"
+            placeholder="0"
+            value={text.peoples}
+            onChange={handleInput}
+          />
+        </section>
       </form>
     </div>
   );
