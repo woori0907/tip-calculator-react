@@ -28,6 +28,13 @@
   color: #61dafb;
 }
 
+.app_title {
+  color: var(--dark-grayish-cyan);
+  font-size: 1.5em;
+  letter-spacing: 0.3em;
+  margin: 50px 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
