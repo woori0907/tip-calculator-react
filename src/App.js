@@ -10,6 +10,10 @@ function App() {
         TTER
       </h1>
       <Calc />
+      <div className="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Woori Kang</a>.
+      </div>
     </>
   );
 }

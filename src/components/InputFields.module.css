@@ -1,0 +1,100 @@
+.input_wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  padding: 1.5em 1.5em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.input_section {
+  width: 100%;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  border: none;
+  background-color: var(--very-light-grayish-cyan);
+  height: 40px;
+  outline: none;
+  border-radius: 5px;
+  text-align: right;
+  color: var(--very-dark-cyan);
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 0.8em;
+}
+input:focus {
+  border: 1.5px solid var(--strong-cyan);
+}
+
+.input_bill {
+  background-image: url(../../public/images/icon-dollar.svg);
+  background-repeat: no-repeat;
+  background-position: center left 1em;
+}
+
+.input_peoples {
+  background-image: url(../../public/images/icon-person.svg);
+  background-repeat: no-repeat;
+  background-position: center left 1em;
+}
+
+input.invalid {
+  border: 1.5px solid rgb(223, 142, 125);
+}
+
+.visible {
+  visibility: visible !important;
+  display: block !important;
+}
+
+.form_alert {
+  color: rgb(223, 142, 125);
+  font-size: 0.9em;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  visibility: hidden;
+  display: none;
+  transition: all 1000ms;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.label {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--dark-grayish-cyan);
+}
+
+.percent_field {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 375px) and (max-width: 1440px) {
+  .percent_field {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .input_section {
+    margin-bottom: 40px;
+  }
+}
