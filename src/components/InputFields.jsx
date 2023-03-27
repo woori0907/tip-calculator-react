@@ -21,6 +21,7 @@ const InputFields = ({ setTips, isReset, setIsReset }) => {
     tipAmount = ((bill / peoples) * percent).toFixed(2);
     totalTip = (tipAmount * peoples).toFixed(2);
   };
+
   const handlePercentInput = (e) => {
     e.preventDefault();
     Object.entries(percentButtons.current.children).forEach(([_, value]) => {
